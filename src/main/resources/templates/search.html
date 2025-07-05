@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name=viewport
+          content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta charset="utf-8" />
+    <title>Title</title>
+    <link href="/main.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{nav.html :: navbar}"></div>
+<form action="/search" method="POST">
+    <input name="searchText">
+    <button>검색</button>
+</form>
+<div class="card" th:each="i : ${items}">
+    <img th:src="${not #strings.isEmpty(i.imageUrl) ? i.imageUrl : 'https://placehold.co/300'}" alt="상품 이미지">
+    <div>
+        <h4 th:text="${i.title}"></h4>
+        <a th:href="@{ '/detail/' }+ ${i.id}">세부정보</a>
+        <p th:text="${i.price}">7억</p>
+        <a th:href="@{ '/edit/' }+ ${i.id}">✏️</a>
+        <span th:onclick="fetch('/item?id=[[${i.id}]]',{method : 'DELETE'})
+         .then(r => r.text())
+         .then(() => {
+            location.reload();
+         })
+        ">🗑️</span>
+    </div>
+</div>
+<div class="pagination">
+    <a th:each="pageNum : ${pageNumbers}"
+       th:href="@{/list/page/{num}(num=${pageNum})}"
+       th:text="${pageNum}"
+       th:classappend="${pageNum == currentPage} ? 'active'">
+    </a>
+</div>
+<script>
+
+</script>
+</body>
+</html>

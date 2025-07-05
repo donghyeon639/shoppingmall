@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name=viewport
+          content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/main.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+<div th:replace="~{nav.html :: navbar}"></div>
+<form action="/add" method="post">
+        <input name="title">
+        <input name="price">
+        <input type="hidden" id="imgUrl" name="imgUrl">
+        <button type="submit">전송</button>
+</form>
+<input type="file" onchange="getURL(this)">
+<img id="preview" src="" alt="이미지 미리보기">
+<script>
+    async function getURL(e){
+      let file = e.files[0]
+      let name = encodeURIComponent(file.name)
+      let result = await fetch('/presigned-url?filename=' + name)
+      result = await result.text()
+
+      let 결과 = await fetch(result, {
+        method: 'PUT',
+        body: e.files[0]
+      })
+
+      console.log(결과.url.split("?")[0])
+        if (결과.ok) {
+            let imageUrl = 결과.url.split("?")[0];
+            document.getElementById('preview').src = imageUrl;
+            document.getElementById('imgUrl').value = imageUrl; // 이미지 URL을 hidden input에 저장
+        }
+    }
+</script>
+</body>
+</html>

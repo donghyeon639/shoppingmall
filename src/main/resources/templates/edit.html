@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/main.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{nav.html :: navbar}"></div>
+<form action="/update" method="post">
+    <input name="id" th:value="${data.id}">
+    <input th:value="${data.title}" name="title">
+    <input th:value="${data.price}" name="price">
+    <button type="submit">수정</button>
+</form>
+</body>
+</html>

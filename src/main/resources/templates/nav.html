@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>동현 쇼핑몰</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header-container" th:fragment="navbar">
+    <!-- 1. 로고와 검색창 영역 (이전과 동일) -->
+    <div class="main-header">
+        <div>
+            <a href="/" class="logo">DongSpringmall</a>
+            <form action="/search" method="POST" class="search-form">
+                <input type="text" name="query" placeholder="검색어를 입력하세요">
+                <button type="submit" class="search-button">검색</button>
+            </form>
+        </div>
+    </div>
+
+    <nav class="category-nav">
+        <a href="/list/page/1">전체</a>
+    </nav>
+</div>
+
+</body>
+</html>

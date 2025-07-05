@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name=viewport
+          content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/main.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{nav.html :: navbar}"></div>
+<form action="/member" method="POST">
+  <input name="displayName" placeholder="이름">
+  <input name="username" placeholder="아이디">
+  <input name="password" type="password">
+  <button type="submit">전송</button>
+</form>
+
+</body>
+</html>

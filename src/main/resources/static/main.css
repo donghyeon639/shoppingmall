@@ -1,0 +1,63 @@
+.card {
+ margin : 30px auto;
+ display : flex;
+}
+.card img {
+ width : 150px;
+ margin-right : 20px;
+}
+input, button {
+ padding : 8px 13px;
+ margin-top : 5px;
+ border : 1px solid grey;
+ border-radius : 4px;
+ vertical-align : middle;
+}
+button {
+ background : black;
+ color : white;
+ border : none;
+}
+input {
+ display : block;
+}
+.detail {
+  text-align : center;
+}
+.detail img{
+  max-width : 30%;
+  display : block;
+  margin : auto;
+}
+.pagination {
+    display: flex;
+    gap: 8px;  /* 페이지 번호 사이 간격 조정 */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    transition: background 0.3s;
+}
+
+.pagination a:hover {
+    background: #f0f0f0;
+}
+
+.pagination .active {
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    border-color: #007bff;
+}
+.comment{
+    margin: auto;
+}
+.order{
+    margin: auto;
+}

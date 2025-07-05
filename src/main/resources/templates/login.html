@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name=viewport
+          content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/main.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{nav.html :: navbar}">로그인</div>
+<div th:if="${param.error}">
+    <h4>아이디나 비번 틀림</h4>
+</div>
+<form action="/login" method="post">
+    <input name="username">
+    <input name="password" type="password">
+    <button type="submit">로그인</button>
+</form>
+</body>
+</html>
